@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_company">
+
+    <fragment
+        android:id="@+id/navigation_company"
+        android:name="com.apsolete.splitthebill.ui.company.CompanyFragment"
+        android:label="@string/title_company"
+        tools:layout="@layout/fragment_company" />
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.apsolete.splitthebill.ui.bill.BillFragment"
+        android:label="@string/title_bill"
+        tools:layout="@layout/fragment_bill" />
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.apsolete.splitthebill.ui.split.SplitFragment"
+        android:label="@string/title_split"
+        tools:layout="@layout/fragment_split" />
+</navigation>
