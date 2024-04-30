@@ -1,5 +1,6 @@
 package com.apsolete.splitthebill.dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -12,7 +13,7 @@ import java.util.List;
 @Dao
 public interface MateDao {
     @Query("SELECT * FROM mates")
-    List<Mate> getAll();
+    LiveData<List<Mate>> getAll();
     @Insert
     void insert(Mate mate);
     @Delete

@@ -11,7 +11,7 @@ import com.apsolete.splitthebill.entity.Split;
 
 @Database(version = 0, entities = {Mate.class, Bill.class, Dish.class, Split.class})
 @TypeConverters({Converters.class})
-public abstract class SplitTheBillDatabase extends RoomDatabase {
+public abstract class AppDatabase extends RoomDatabase {
     public abstract MateDao mateDao();
     public abstract BillDao billDao();
     public abstract DishDao dishDao();

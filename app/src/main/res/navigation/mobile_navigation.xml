@@ -12,13 +12,13 @@
         tools:layout="@layout/fragment_company" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_bill"
         android:name="com.apsolete.splitthebill.ui.bill.BillFragment"
         android:label="@string/title_bill"
         tools:layout="@layout/fragment_bill" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_split"
         android:name="com.apsolete.splitthebill.ui.split.SplitFragment"
         android:label="@string/title_split"
         tools:layout="@layout/fragment_split" />
