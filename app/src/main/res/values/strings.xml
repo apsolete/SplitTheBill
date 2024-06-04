@@ -3,4 +3,6 @@
     <string name="title_company">Who</string>
     <string name="title_bill">Ate</string>
     <string name="title_split">More</string>
+    <string name="option_menu_add_mate">Add mate</string>
+    <string name="option_menu_add_dish">Add dish</string>
 </resources>
