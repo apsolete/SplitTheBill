@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
@@ -9,7 +10,17 @@
         android:id="@+id/navigation_company"
         android:name="com.apsolete.splitthebill.ui.company.CompanyFragment"
         android:label="@string/title_company"
-        tools:layout="@layout/fragment_company" />
+        tools:layout="@layout/fragment_company">
+        <action
+            android:id="@+id/action_company_to_mate"
+            app:destination="@id/navigation_mate"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_mate"
+        android:name="com.apsolete.splitthebill.ui.company.MateFragment"
+        android:label="@string/title_mate"
+        tools:layout="@layout/fragment_mate" />
 
     <fragment
         android:id="@+id/navigation_bill"

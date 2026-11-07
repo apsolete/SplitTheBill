@@ -1,6 +1,7 @@
 package com.apsolete.splitthebill.ui.company;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,20 +13,29 @@ import androidx.annotation.NonNull;
 import androidx.core.view.MenuProvider;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.apsolete.splitthebill.R;
 import com.apsolete.splitthebill.databinding.FragmentCompanyBinding;
+import com.apsolete.splitthebill.entity.Mate;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Executors;
 
 public class CompanyFragment extends Fragment {
 
     private FragmentCompanyBinding binding;
+    private MateListAdapter adapter;
+    private CompanyViewModel companyViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        CompanyViewModel companyViewModel =
+        companyViewModel =
                 new ViewModelProvider(this).get(CompanyViewModel.class);
 
         binding = FragmentCompanyBinding.inflate(inflater, container, false);
@@ -41,20 +51,21 @@ public class CompanyFragment extends Fragment {
             public boolean onMenuItemSelected(@NonNull MenuItem menuItem) {
                 int id = menuItem.getItemId();
                 if (id == R.id.add_mate_item) {
+                    NavHostFragment.findNavController(CompanyFragment.this).navigate(R.id.action_company_to_mate);
+                }
+                else if (id == R.id.add_party_item) {
 
                 }
                 return false;
             }
         }, getViewLifecycleOwner(), Lifecycle.State.RESUMED);
 
-        RecyclerView recyclerView = root.findViewById(R.id.recyclerview);
-        final MateListAdapter adapter = new MateListAdapter(new MateListAdapter.MateDiff());
+        adapter = new MateListAdapter();
+        companyViewModel.getAllMates().observe(this.getViewLifecycleOwner(), adapter::submitList);
+
+        RecyclerView recyclerView = binding.recyclerview;//root.findViewById(R.id.recyclerview);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
-
-        companyViewModel.getAllMates().observe(this.getViewLifecycleOwner(), mates -> {
-            adapter.submitList(mates);
-        });
 
         return root;
     }
@@ -63,10 +74,7 @@ public class CompanyFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
-    }
-
-    @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
+        adapter = null;
+        companyViewModel = null;
     }
 }

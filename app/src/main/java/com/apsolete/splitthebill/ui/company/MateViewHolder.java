@@ -9,17 +9,21 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.apsolete.splitthebill.R;
+import com.apsolete.splitthebill.entity.Mate;
 
 public class MateViewHolder extends RecyclerView.ViewHolder {
     private final TextView mMateNameView;
+    private final TextView mMateSelectView;
 
     public MateViewHolder(@NonNull View itemView) {
         super(itemView);
         mMateNameView = itemView.findViewById(R.id.mate_name);
+        mMateSelectView = itemView.findViewById(R.id.mate_select);
     }
 
-    public void bind(String text) {
-        mMateNameView.setText(text);
+    public void bind(Mate mate) {
+        mMateNameView.setText(mate.name);
+        mMateSelectView.setText("Selected");
     }
 
     static MateViewHolder create(ViewGroup parent) {

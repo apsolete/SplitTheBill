@@ -1,16 +1,18 @@
+import com.android.build.api.dsl.ApplicationExtension
+
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.androidxroom)
 }
 
-android {
+configure<ApplicationExtension> {
     namespace = "com.apsolete.splitthebill"
-    compileSdk = 34
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.apsolete.splitthebill"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 37
         versionCode = 1
         versionName = "1.0"
 
@@ -30,15 +32,15 @@ android {
     buildFeatures {
         viewBinding = true
     }
+}
 
-    room {
-        schemaDirectory("$projectDir/schemas")
-    }
+room {
+    schemaDirectory(path = "\$projectDir/schemas")
 }
 
 dependencies {
-
     implementation(libs.appcompat)
+    implementation(libs.legacy.support.v4)
     implementation(libs.material)
     implementation(libs.constraintlayout)
     implementation(libs.lifecycle.livedata.ktx)
