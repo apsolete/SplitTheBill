@@ -1,7 +1,6 @@
 package com.apsolete.splitthebill.ui.company;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.core.view.MenuProvider;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -21,11 +19,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.apsolete.splitthebill.R;
 import com.apsolete.splitthebill.databinding.FragmentCompanyBinding;
-import com.apsolete.splitthebill.entity.Mate;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.Executors;
 
 public class CompanyFragment extends Fragment {
 
@@ -63,7 +56,7 @@ public class CompanyFragment extends Fragment {
         adapter = new MateListAdapter();
         companyViewModel.getAllMates().observe(this.getViewLifecycleOwner(), adapter::submitList);
 
-        RecyclerView recyclerView = binding.recyclerview;//root.findViewById(R.id.recyclerview);
+        RecyclerView recyclerView = binding.recyclerview;
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 

@@ -6,7 +6,6 @@ import com.apsolete.splitthebill.MainActivity;
 import com.apsolete.splitthebill.dao.MateDao;
 import com.apsolete.splitthebill.entity.Mate;
 
-import java.util.List;
 import java.util.concurrent.Executors;
 
 public class MateViewModel extends ViewModel {

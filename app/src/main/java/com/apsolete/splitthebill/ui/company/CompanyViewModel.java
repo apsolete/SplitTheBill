@@ -9,7 +9,6 @@ import com.apsolete.splitthebill.dao.MateDao;
 import com.apsolete.splitthebill.entity.Mate;
 
 import java.util.List;
-import java.util.concurrent.Executors;
 
 public class CompanyViewModel extends ViewModel {
     private final MateDao mMateDao;

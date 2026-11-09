@@ -23,11 +23,7 @@ import java.util.concurrent.Executors;
 
 public class MateFragment extends Fragment {
 
-    public static final String REQUEST_KEY = "mate_request_key";
-    public static final String BUNDLE_KEY = "mate_payload";
-
     private MateViewModel mViewModel;
-    private FragmentMateBinding binding;
 
     public static MateFragment newInstance() {
         return new MateFragment();
@@ -38,7 +34,7 @@ public class MateFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         mViewModel = new ViewModelProvider(this).get(MateViewModel.class);
 
-        binding = FragmentMateBinding.inflate(inflater, container, false);
+        FragmentMateBinding binding = FragmentMateBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         root.findViewById(R.id.butSave).setOnClickListener(v -> {
@@ -46,6 +42,9 @@ public class MateFragment extends Fragment {
             String newMateName = editMateName.getText().toString();
             mViewModel.saveMate(newMateName);
 
+            NavHostFragment.findNavController(MateFragment.this).navigateUp();
+        });
+        root.findViewById(R.id.butCancel).setOnClickListener(view -> {
             NavHostFragment.findNavController(MateFragment.this).navigateUp();
         });
 

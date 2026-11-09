@@ -15,10 +15,10 @@ public class MateViewHolder extends RecyclerView.ViewHolder {
     private final TextView mMateNameView;
     private final TextView mMateSelectView;
 
-    public MateViewHolder(@NonNull View itemView) {
-        super(itemView);
-        mMateNameView = itemView.findViewById(R.id.mate_name);
-        mMateSelectView = itemView.findViewById(R.id.mate_select);
+    public MateViewHolder(@NonNull View view) {
+        super(view);
+        mMateNameView = view.findViewById(R.id.mate_name);
+        mMateSelectView = view.findViewById(R.id.mate_select);
     }
 
     public void bind(Mate mate) {

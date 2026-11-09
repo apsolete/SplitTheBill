@@ -12,4 +12,5 @@ public class Party {
     public String title;
     public String where;
     public Date when;
+    public boolean finished;
 }
