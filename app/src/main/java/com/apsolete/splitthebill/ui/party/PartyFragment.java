@@ -18,12 +18,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.apsolete.splitthebill.R;
-import com.apsolete.splitthebill.databinding.FragmentCompanyBinding;
+import com.apsolete.splitthebill.databinding.FragmentPartyBinding;
 import com.apsolete.splitthebill.ui.mate.MateListAdapter;
 
 public class PartyFragment extends Fragment {
 
-    private FragmentCompanyBinding binding;
+    private FragmentPartyBinding binding;
     private MateListAdapter adapter;
     private PartyViewModel partyViewModel;
 
@@ -32,7 +32,7 @@ public class PartyFragment extends Fragment {
         partyViewModel =
                 new ViewModelProvider(this).get(PartyViewModel.class);
 
-        binding = FragmentCompanyBinding.inflate(inflater, container, false);
+        binding = FragmentPartyBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         requireActivity().addMenuProvider(new MenuProvider() {

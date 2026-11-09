@@ -10,7 +10,7 @@
         android:id="@+id/navigation_company"
         android:name="com.apsolete.splitthebill.ui.party.PartyFragment"
         android:label="@string/title_company"
-        tools:layout="@layout/fragment_company">
+        tools:layout="@layout/fragment_party">
         <action
             android:id="@+id/action_company_to_mate"
             app:destination="@id/navigation_mate"/>
