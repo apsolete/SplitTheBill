@@ -1,4 +1,4 @@
-package com.apsolete.splitthebill.ui.company;
+package com.apsolete.splitthebill.ui.party;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,17 +19,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.apsolete.splitthebill.R;
 import com.apsolete.splitthebill.databinding.FragmentCompanyBinding;
+import com.apsolete.splitthebill.ui.mate.MateListAdapter;
 
-public class CompanyFragment extends Fragment {
+public class PartyFragment extends Fragment {
 
     private FragmentCompanyBinding binding;
     private MateListAdapter adapter;
-    private CompanyViewModel companyViewModel;
+    private PartyViewModel partyViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        companyViewModel =
-                new ViewModelProvider(this).get(CompanyViewModel.class);
+        partyViewModel =
+                new ViewModelProvider(this).get(PartyViewModel.class);
 
         binding = FragmentCompanyBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -44,7 +45,7 @@ public class CompanyFragment extends Fragment {
             public boolean onMenuItemSelected(@NonNull MenuItem menuItem) {
                 int id = menuItem.getItemId();
                 if (id == R.id.add_mate_item) {
-                    NavHostFragment.findNavController(CompanyFragment.this).navigate(R.id.action_company_to_mate);
+                    NavHostFragment.findNavController(PartyFragment.this).navigate(R.id.action_company_to_mate);
                 }
                 else if (id == R.id.add_party_item) {
 
@@ -54,7 +55,7 @@ public class CompanyFragment extends Fragment {
         }, getViewLifecycleOwner(), Lifecycle.State.RESUMED);
 
         adapter = new MateListAdapter();
-        companyViewModel.getAllMates().observe(this.getViewLifecycleOwner(), adapter::submitList);
+        partyViewModel.getAllMates().observe(this.getViewLifecycleOwner(), adapter::submitList);
 
         RecyclerView recyclerView = binding.recyclerview;
         recyclerView.setAdapter(adapter);
@@ -68,6 +69,6 @@ public class CompanyFragment extends Fragment {
         super.onDestroyView();
         binding = null;
         adapter = null;
-        companyViewModel = null;
+        partyViewModel = null;
     }
 }

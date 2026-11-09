@@ -1,4 +1,4 @@
-package com.apsolete.splitthebill.ui.company;
+package com.apsolete.splitthebill.ui.party;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -10,12 +10,12 @@ import com.apsolete.splitthebill.entity.Mate;
 
 import java.util.List;
 
-public class CompanyViewModel extends ViewModel {
+public class PartyViewModel extends ViewModel {
     private final MateDao mMateDao;
     private final MutableLiveData<String> mText;
     private final LiveData<List<Mate>> mMates;
 
-    public CompanyViewModel() {
+    public PartyViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("Company");
 

@@ -1,4 +1,4 @@
-package com.apsolete.splitthebill.ui.company;
+package com.apsolete.splitthebill.ui.mate;
 
 import androidx.lifecycle.ViewModel;
 

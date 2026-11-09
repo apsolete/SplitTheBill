@@ -5,7 +5,7 @@
     android:id="@+id/fragmentCompany"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.company.CompanyFragment">
+    tools:context=".ui.party.PartyFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"

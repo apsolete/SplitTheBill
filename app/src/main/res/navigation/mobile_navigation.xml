@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/navigation_company"
-        android:name="com.apsolete.splitthebill.ui.company.CompanyFragment"
+        android:name="com.apsolete.splitthebill.ui.party.PartyFragment"
         android:label="@string/title_company"
         tools:layout="@layout/fragment_company">
         <action
@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/navigation_mate"
-        android:name="com.apsolete.splitthebill.ui.company.MateFragment"
+        android:name="com.apsolete.splitthebill.ui.mate.MateFragment"
         android:label="@string/title_mate"
         tools:layout="@layout/fragment_mate" />
 

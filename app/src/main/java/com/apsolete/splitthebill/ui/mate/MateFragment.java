@@ -1,4 +1,4 @@
-package com.apsolete.splitthebill.ui.company;
+package com.apsolete.splitthebill.ui.mate;
 
 import androidx.lifecycle.ViewModelProvider;
 
@@ -7,7 +7,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
@@ -17,9 +16,6 @@ import android.widget.EditText;
 
 import com.apsolete.splitthebill.R;
 import com.apsolete.splitthebill.databinding.FragmentMateBinding;
-import com.apsolete.splitthebill.entity.Mate;
-
-import java.util.concurrent.Executors;
 
 public class MateFragment extends Fragment {
 
