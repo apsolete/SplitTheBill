@@ -7,54 +7,54 @@
     android:layout_height="match_parent"
     tools:context=".ui.party.PartyFragment">
 
-    <EditText
-        android:id="@+id/editTitle"
+    <TextView
+        android:id="@+id/textTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:autofillHints="Title"
         android:ems="10"
-        android:hint="Title"
-        android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@id/editWhere"
+        android:hint="@string/party_title"
+        app:layout_constraintBottom_toTopOf="@id/textWhere"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <EditText
-        android:id="@+id/editWhere"
+    <TextView
+        android:id="@+id/textWhere"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:autofillHints="Where"
         android:ems="10"
-        android:hint="Where"
-        android:inputType="textPostalAddress"
-        app:layout_constraintBottom_toTopOf="@id/editWhenDate"
+        android:hint="@string/party_where"
+        app:layout_constraintBottom_toTopOf="@id/textWhenDate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTitle" />
+        app:layout_constraintTop_toBottomOf="@id/textTitle" />
 
-    <EditText
-        android:id="@+id/editWhenDate"
+    <TextView
+        android:id="@+id/textWhenDate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:autofillHints="When date"
         android:ems="10"
-        android:hint="When date"
-        android:inputType="date"
-        app:layout_constraintBottom_toTopOf="@id/editWhenTime"
+        android:hint="@string/party_when_date"
+        app:layout_constraintBottom_toTopOf="@id/textWhenTime"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editWhere" />
+        app:layout_constraintTop_toBottomOf="@id/textWhere" />
 
-    <EditText
-        android:id="@+id/editWhenTime"
+    <TextView
+        android:id="@+id/textWhenTime"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:autofillHints="When time"
         android:ems="10"
-        android:hint="When time"
-        android:inputType="time"
+        android:hint="@string/party_when_time"
         app:layout_constraintBottom_toTopOf="@id/recyclerPartyGoers"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editWhenDate" />
+        app:layout_constraintTop_toBottomOf="@id/textWhenDate" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerPartyGoers"
@@ -65,7 +65,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editWhenTime"
+        app:layout_constraintTop_toBottomOf="@id/textWhenTime"
         tools:listitem="@layout/recyclerview_mate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

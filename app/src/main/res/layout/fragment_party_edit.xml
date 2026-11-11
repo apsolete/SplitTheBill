@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutPartyEdit"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.party.PartyEditFragment">
+
+    <EditText
+        android:id="@+id/editTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:autofillHints="Title"
+        android:ems="10"
+        android:hint="@string/party_title"
+        android:inputType="text"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@id/editWhere"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <EditText
+        android:id="@+id/editWhere"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:autofillHints="Where"
+        android:ems="10"
+        android:hint="@string/party_where"
+        android:inputType="textPostalAddress"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@id/editWhenDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTitle" />
+
+    <EditText
+        android:id="@+id/editWhenDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:autofillHints="When date"
+        android:ems="10"
+        android:hint="@string/party_when_date"
+        android:inputType="date"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@id/editWhenTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editWhere" />
+
+    <EditText
+        android:id="@+id/editWhenTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:autofillHints="When time"
+        android:ems="10"
+        android:hint="@string/party_when_time"
+        android:inputType="time"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editWhenDate" />
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editWhenTime" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

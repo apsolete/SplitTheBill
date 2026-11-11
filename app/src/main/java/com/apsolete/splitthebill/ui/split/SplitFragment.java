@@ -33,7 +33,7 @@ public class SplitFragment extends Fragment {
         requireActivity().addMenuProvider(new MenuProvider() {
             @Override
             public void onCreateMenu(@NonNull Menu menu, @NonNull MenuInflater menuInflater) {
-                menuInflater.inflate(R.menu.split_menu, menu);
+                menuInflater.inflate(R.menu.menu_split, menu);
             }
 
             @Override

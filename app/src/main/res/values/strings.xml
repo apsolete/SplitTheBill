@@ -1,12 +1,32 @@
 <resources>
     <string name="app_name">SplitTheBill</string>
+
     <string name="title_party">Who</string>
     <string name="title_bill">Ate</string>
     <string name="title_split">More</string>
     <string name="title_mate">Mate</string>
-    <string name="option_menu_add_party">Add party</string>
-    <string name="option_menu_add_mate">Add mate</string>
-    <string name="option_menu_add_dish">Add dish</string>
+
+    <string name="menu_title_who">Who</string>
+    <string name="menu_title_ate">Ate</string>
+    <string name="menu_title_more">More</string>
+
+    <string name="menu_title_party_new">Add party</string>
+    <string name="menu_title_party_mates">Add mate</string>
+    <string name="menu_title_party_apply">Save party</string>
+    <string name="menu_title_party_decline">Save party</string>
+    <string name="menu_title_party_accept">Save party</string>
+
+    <string name="menu_title_mates_accept">Add mate</string>
+    <string name="menu_title_mates_decline">Add dish</string>
+
+    <string name="menu_title_dish_add">Add dish</string>
+    <string name="menu_title_recalc">Recalculate</string>
+
     <string name="mate_name">Mate name</string>
     <string name="mate_image">Mate image</string>
+
+    <string name="party_title">Title</string>
+    <string name="party_where">Where</string>
+    <string name="party_when_date">When date</string>
+    <string name="party_when_time">When time</string>
 </resources>

@@ -3,7 +3,7 @@ package com.apsolete.splitthebill.entity;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.util.Date;
+import java.time.Instant;
 
 @Entity(tableName = "parties")
 public class Party {
@@ -11,6 +11,6 @@ public class Party {
     public long id;
     public String title;
     public String where;
-    public Date when;
+    public Instant when;
     public boolean finished;
 }

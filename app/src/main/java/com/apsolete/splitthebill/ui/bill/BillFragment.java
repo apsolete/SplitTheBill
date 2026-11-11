@@ -33,7 +33,7 @@ public class BillFragment extends Fragment {
         requireActivity().addMenuProvider(new MenuProvider() {
             @Override
             public void onCreateMenu(@NonNull Menu menu, @NonNull MenuInflater menuInflater) {
-                menuInflater.inflate(R.menu.bill_menu, menu);
+                menuInflater.inflate(R.menu.menu_bill, menu);
             }
 
             @Override

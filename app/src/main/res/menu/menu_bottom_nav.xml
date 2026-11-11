@@ -4,16 +4,16 @@
     <item
         android:id="@+id/navigation_party"
         android:icon="@drawable/ic_company_24dp"
-        android:title="@string/title_party" />
+        android:title="@string/menu_title_who" />
 
     <item
         android:id="@+id/navigation_bill"
         android:icon="@drawable/ic_bill_24dp"
-        android:title="@string/title_bill" />
+        android:title="@string/menu_title_ate" />
 
     <item
         android:id="@+id/navigation_split"
         android:icon="@drawable/ic_split_24dp"
-        android:title="@string/title_split" />
+        android:title="@string/menu_title_more" />
 
 </menu>

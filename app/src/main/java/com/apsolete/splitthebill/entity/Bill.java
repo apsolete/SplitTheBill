@@ -1,10 +1,9 @@
 package com.apsolete.splitthebill.entity;
 
 import androidx.room.Entity;
-import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-import java.util.Date;
+import java.time.Instant;
 
 @Entity(tableName = "bills")
 public class Bill {
@@ -12,5 +11,5 @@ public class Bill {
     public long id;
     public String party;
     public String where;
-    public Date date;
+    public Instant date;
 }

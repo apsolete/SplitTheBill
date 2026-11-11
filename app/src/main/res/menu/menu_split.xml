@@ -4,7 +4,7 @@
     <item
         android:id="@+id/recalculate_item"
         android:icon="@drawable/baseline_refresh_24"
-        android:title="@string/option_menu_add_mate"
+        android:title="@string/menu_title_recalc"
         app:showAsAction="always"
         />
 </menu>

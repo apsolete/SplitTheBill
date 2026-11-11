@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
+    android:id="@+id/nav_mobile"
     app:startDestination="@+id/navigation_party">
 
     <fragment
@@ -12,9 +12,18 @@
         android:label="@string/title_party"
         tools:layout="@layout/fragment_party">
         <action
-            android:id="@+id/action_party_to_mate"
+            android:id="@+id/navigation_action_party_to_edit"
+            app:destination="@id/navigation_party_edit"/>
+        <action
+            android:id="@+id/navigation_action_party_to_mate"
             app:destination="@id/navigation_mate"/>
     </fragment>
+
+    <fragment
+        android:id="@+id/navigation_party_edit"
+        android:name="com.apsolete.splitthebill.ui.party.PartyEditFragment"
+        android:label="@string/title_party"
+        tools:layout="@layout/fragment_party_edit" />
 
     <fragment
         android:id="@+id/navigation_mate"
