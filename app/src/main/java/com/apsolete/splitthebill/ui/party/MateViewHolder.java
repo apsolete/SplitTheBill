@@ -1,4 +1,4 @@
-package com.apsolete.splitthebill.ui.mate;
+package com.apsolete.splitthebill.ui.party;
 
 import android.view.LayoutInflater;
 import android.view.View;

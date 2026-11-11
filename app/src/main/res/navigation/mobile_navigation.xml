@@ -4,15 +4,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_company">
+    app:startDestination="@+id/navigation_party">
 
     <fragment
-        android:id="@+id/navigation_company"
+        android:id="@+id/navigation_party"
         android:name="com.apsolete.splitthebill.ui.party.PartyFragment"
-        android:label="@string/title_company"
+        android:label="@string/title_party"
         tools:layout="@layout/fragment_party">
         <action
-            android:id="@+id/action_company_to_mate"
+            android:id="@+id/action_party_to_mate"
             app:destination="@id/navigation_mate"/>
     </fragment>
 

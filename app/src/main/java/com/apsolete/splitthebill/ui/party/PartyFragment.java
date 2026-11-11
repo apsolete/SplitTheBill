@@ -19,7 +19,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.apsolete.splitthebill.R;
 import com.apsolete.splitthebill.databinding.FragmentPartyBinding;
-import com.apsolete.splitthebill.ui.mate.MateListAdapter;
 
 public class PartyFragment extends Fragment {
 
@@ -45,7 +44,7 @@ public class PartyFragment extends Fragment {
             public boolean onMenuItemSelected(@NonNull MenuItem menuItem) {
                 int id = menuItem.getItemId();
                 if (id == R.id.add_mate_item) {
-                    NavHostFragment.findNavController(PartyFragment.this).navigate(R.id.action_company_to_mate);
+                    NavHostFragment.findNavController(PartyFragment.this).navigate(R.id.action_party_to_mate);
                 }
                 else if (id == R.id.add_party_item) {
 
@@ -57,7 +56,7 @@ public class PartyFragment extends Fragment {
         adapter = new MateListAdapter();
         partyViewModel.getAllMates().observe(this.getViewLifecycleOwner(), adapter::submitList);
 
-        RecyclerView recyclerView = binding.recyclerview;
+        RecyclerView recyclerView = binding.recyclerPartyGoers;
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 

@@ -1,24 +1,20 @@
 package com.apsolete.splitthebill;
 
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 
 import com.apsolete.splitthebill.dao.AppDatabase;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.room.Room;
 
 import com.apsolete.splitthebill.databinding.ActivityMainBinding;
-import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,10 +29,30 @@ public class MainActivity extends AppCompatActivity {
         ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        //ViewCompat.setOnApplyWindowInsetsListener(binding.container, (v, windowInsets) -> {
+        //    Insets systemBars = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+        //    // Применяем верхний отступ, равный высоте статус-бара + AppBar
+        //    v.setPadding(v.getPaddingLeft(), systemBars.top, v.getPaddingRight(), v.getPaddingBottom());
+        //    return windowInsets;
+        //});
+        // распределяем отступы точечно
+        ViewCompat.setOnApplyWindowInsetsListener(binding.container, (v, windowInsets) -> {
+            Insets systemBars = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+
+            // 1. Фрагменту (или контейнеру) отдаем только верхний отступ (под AppBar)
+            binding.navHostFragmentActivityMain.setPadding(0, systemBars.top, 0, 0);
+
+            // 2. Нижней панели отдаем только нижний отступ (под жесты/кнопки навигации)
+            binding.navView.setPadding(0, 0, 0, systemBars.bottom);
+
+            return WindowInsetsCompat.CONSUMED; // Указываем, что отступы успешно обработаны
+        });
+
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_company, R.id.navigation_mate, R.id.navigation_bill, R.id.navigation_split)
+                R.id.navigation_party, R.id.navigation_mate, R.id.navigation_bill, R.id.navigation_split)
                 .build();
 
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()

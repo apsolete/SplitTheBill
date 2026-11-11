@@ -2,20 +2,70 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragmentCompany"
+    android:id="@+id/layoutParty"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.party.PartyFragment">
 
+    <EditText
+        android:id="@+id/editTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Title"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@id/editWhere"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <EditText
+        android:id="@+id/editWhere"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Where"
+        android:inputType="textPostalAddress"
+        app:layout_constraintBottom_toTopOf="@id/editWhenDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTitle" />
+
+    <EditText
+        android:id="@+id/editWhenDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="When date"
+        android:inputType="date"
+        app:layout_constraintBottom_toTopOf="@id/editWhenTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editWhere" />
+
+    <EditText
+        android:id="@+id/editWhenTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="When time"
+        android:inputType="time"
+        app:layout_constraintBottom_toTopOf="@id/recyclerPartyGoers"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editWhenDate" />
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview"
-        android:layout_width="match_parent"
+        android:id="@+id/recyclerPartyGoers"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        android:clipToPadding="false"
         android:padding="@dimen/big_padding"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editWhenTime"
         tools:listitem="@layout/recyclerview_mate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
