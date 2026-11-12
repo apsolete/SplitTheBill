@@ -29,12 +29,6 @@ public class MainActivity extends AppCompatActivity {
         ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        //ViewCompat.setOnApplyWindowInsetsListener(binding.container, (v, windowInsets) -> {
-        //    Insets systemBars = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
-        //    // Применяем верхний отступ, равный высоте статус-бара + AppBar
-        //    v.setPadding(v.getPaddingLeft(), systemBars.top, v.getPaddingRight(), v.getPaddingBottom());
-        //    return windowInsets;
-        //});
         // распределяем отступы точечно
         ViewCompat.setOnApplyWindowInsetsListener(binding.container, (v, windowInsets) -> {
             Insets systemBars = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -52,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_party, R.id.navigation_mate, R.id.navigation_bill, R.id.navigation_split)
+                R.id.navigation_party, R.id.navigation_party_edit, R.id.navigation_mate, R.id.navigation_bill, R.id.navigation_split)
                 .build();
 
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()

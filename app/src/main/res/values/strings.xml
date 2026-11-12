@@ -2,6 +2,7 @@
     <string name="app_name">SplitTheBill</string>
 
     <string name="title_party">Who</string>
+    <string name="title_party_edit">Party</string>
     <string name="title_bill">Ate</string>
     <string name="title_split">More</string>
     <string name="title_mate">Mate</string>
@@ -27,6 +28,7 @@
 
     <string name="party_title">Title</string>
     <string name="party_where">Where</string>
+    <string name="party_when">When</string>
     <string name="party_when_date">When date</string>
     <string name="party_when_time">When time</string>
 </resources>

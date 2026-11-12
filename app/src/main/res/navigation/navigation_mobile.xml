@@ -22,7 +22,7 @@
     <fragment
         android:id="@+id/navigation_party_edit"
         android:name="com.apsolete.splitthebill.ui.party.PartyEditFragment"
-        android:label="@string/title_party"
+        android:label="@string/title_party_edit"
         tools:layout="@layout/fragment_party_edit" />
 
     <fragment

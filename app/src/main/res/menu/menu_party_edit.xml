@@ -2,12 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/menu_party_decline"
+        android:id="@+id/menu_party_edit_decline"
         android:icon="@android:drawable/ic_menu_close_clear_cancel"
         android:title="@string/menu_title_party_decline"
         app:showAsAction="always" />
     <item
-        android:id="@+id/menu_party_accept"
+        android:id="@+id/menu_party_edit_accept"
         android:icon="@android:drawable/ic_menu_save"
         android:title="@string/menu_title_party_accept"
         app:showAsAction="ifRoom" />

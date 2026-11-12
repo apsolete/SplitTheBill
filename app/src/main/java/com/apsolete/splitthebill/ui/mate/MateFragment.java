@@ -34,8 +34,7 @@ public class MateFragment extends Fragment {
         View root = binding.getRoot();
 
         root.findViewById(R.id.butSave).setOnClickListener(v -> {
-            EditText editMateName = root.findViewById(R.id.editMateName);
-            String newMateName = editMateName.getText().toString();
+            String newMateName = binding.editMateName.getText().toString();
             mViewModel.saveMate(newMateName);
 
             NavHostFragment.findNavController(MateFragment.this).navigateUp();

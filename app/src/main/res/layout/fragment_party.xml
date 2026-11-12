@@ -11,9 +11,11 @@
         android:id="@+id/textTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:autofillHints="Title"
-        android:ems="10"
         android:hint="@string/party_title"
+        android:paddingStart="8dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="4dp"
         app:layout_constraintBottom_toTopOf="@id/textWhere"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,37 +26,29 @@
         android:id="@+id/textWhere"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:autofillHints="Where"
-        android:ems="10"
         android:hint="@string/party_where"
-        app:layout_constraintBottom_toTopOf="@id/textWhenDate"
+        android:paddingStart="8dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="4dp"
+        app:layout_constraintBottom_toTopOf="@id/textWhen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textTitle" />
 
     <TextView
-        android:id="@+id/textWhenDate"
+        android:id="@+id/textWhen"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:autofillHints="When date"
-        android:ems="10"
-        android:hint="@string/party_when_date"
-        app:layout_constraintBottom_toTopOf="@id/textWhenTime"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textWhere" />
-
-    <TextView
-        android:id="@+id/textWhenTime"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:autofillHints="When time"
-        android:ems="10"
-        android:hint="@string/party_when_time"
+        android:hint="@string/party_when"
+        android:paddingStart="8dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="4dp"
         app:layout_constraintBottom_toTopOf="@id/recyclerPartyGoers"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textWhenDate" />
+        app:layout_constraintTop_toBottomOf="@id/textWhere" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerPartyGoers"
@@ -65,7 +59,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textWhenTime"
+        app:layout_constraintTop_toBottomOf="@id/textWhen"
         tools:listitem="@layout/recyclerview_mate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

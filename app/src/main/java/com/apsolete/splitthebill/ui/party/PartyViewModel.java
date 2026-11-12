@@ -36,6 +36,7 @@ public class PartyViewModel extends ViewModel {
     public LiveData<List<Mate>> getAllMates() {
         return mMates;
     }
+
     public LiveData<Party> getParty() {
         mParty = mPartyDao.getActive();
         return mParty;

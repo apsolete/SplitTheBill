@@ -5,6 +5,7 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.apsolete.splitthebill.entity.Party;
 
@@ -20,6 +21,8 @@ public interface PartyDao {
     LiveData<List<Party>> getOne(long id);
     @Insert
     void insert(Party party);
+    @Update
+    void update(Party party);
     @Delete
     void delete(Party party);
 }

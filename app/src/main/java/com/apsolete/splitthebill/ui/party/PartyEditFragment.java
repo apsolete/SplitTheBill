@@ -19,12 +19,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.apsolete.splitthebill.R;
-import com.apsolete.splitthebill.databinding.FragmentPartyBinding;
+import com.apsolete.splitthebill.dao.Converters;
+import com.apsolete.splitthebill.databinding.FragmentPartyEditBinding;
+import com.apsolete.splitthebill.entity.Party;
+
+import java.time.Instant;
+import java.time.ZonedDateTime;
 
 public class PartyEditFragment extends Fragment {
 
-    private PartyEditViewModel mViewModel;
-    private @NonNull FragmentPartyBinding binding;
+    private PartyEditViewModel viewModel;
+    private FragmentPartyEditBinding binding;
+    private Party currentParty;
 
     public static PartyEditFragment newInstance() {
         return new PartyEditFragment();
@@ -33,9 +39,9 @@ public class PartyEditFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        mViewModel = new ViewModelProvider(this).get(PartyEditViewModel.class);
+        viewModel = new ViewModelProvider(this).get(PartyEditViewModel.class);
 
-        binding = FragmentPartyBinding.inflate(inflater, container, false);
+        binding = FragmentPartyEditBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         requireActivity().addMenuProvider(new MenuProvider() {
@@ -47,16 +53,45 @@ public class PartyEditFragment extends Fragment {
             @Override
             public boolean onMenuItemSelected(@NonNull MenuItem menuItem) {
                 int id = menuItem.getItemId();
-                if (id == R.id.menu_party_decline) {
-
+                if (id == R.id.menu_party_edit_decline) {
+                    NavHostFragment.findNavController(PartyEditFragment.this).navigateUp();
                 }
-                else if (id == R.id.menu_party_accept) {
+                else if (id == R.id.menu_party_edit_accept) {
+                    boolean create = currentParty == null;
+                    if (create) {
+                        currentParty = new Party();
+                    }
+                    currentParty.title = binding.editTitle.getText().toString();
+                    currentParty.where = binding.editWhere.getText().toString();
+                    String date = binding.editWhenDate.getText().toString();
+                    String time = binding.editWhenTime.getText().toString();
+                    currentParty.when = Converters.parseToInstant(date, time);
+                    if (create)
+                        viewModel.insertParty(currentParty);
+                    else
+                        viewModel.saveParty(currentParty);
 
+                    NavHostFragment.findNavController(PartyEditFragment.this).navigateUp();
                 }
                 return false;
             }
         }, getViewLifecycleOwner(), Lifecycle.State.RESUMED);
 
         return root;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        viewModel.getParty().observe(this.getViewLifecycleOwner(), this::showParty);
+    }
+
+    private void showParty(Party party) {
+        if (party == null) return;
+        currentParty = party;
+        binding.editTitle.setText(party.title);
+        binding.editWhere.setText(party.where);
+        binding.editWhenDate.setText(Converters.toDateString(party.when));
+        binding.editWhenTime.setText(Converters.toTimeString(party.when));
     }
 }

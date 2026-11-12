@@ -7,6 +7,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,18 +20,20 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.apsolete.splitthebill.R;
+import com.apsolete.splitthebill.dao.Converters;
 import com.apsolete.splitthebill.databinding.FragmentPartyBinding;
+import com.apsolete.splitthebill.entity.Party;
 
 public class PartyFragment extends Fragment {
 
     private FragmentPartyBinding binding;
     private MateListAdapter adapter;
-    private PartyViewModel partyViewModel;
+    private PartyViewModel viewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        partyViewModel =
+        viewModel =
                 new ViewModelProvider(this).get(PartyViewModel.class);
 
         binding = FragmentPartyBinding.inflate(inflater, container, false);
@@ -70,16 +73,27 @@ public class PartyFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        partyViewModel.getAllMates().observe(this.getViewLifecycleOwner(), adapter::submitList);
-        partyViewModel.getParty().observe(this.getViewLifecycleOwner(), party -> {
-        });
+        viewModel.getAllMates().observe(this.getViewLifecycleOwner(), adapter::submitList);
+        viewModel.getParty().observe(this.getViewLifecycleOwner(), this::showParty);
     }
+
+    private void showParty(Party party) {
+        if (party == null) {
+            Toast.makeText(PartyFragment.this.getContext(), "Party is empty!",
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
+        binding.textTitle.setText(party.title);
+        binding.textWhere.setText(party.where);
+        binding.textWhen.setText(Converters.toDateTimeString(party.when));
+    }
+
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
         adapter = null;
-        partyViewModel = null;
+        viewModel = null;
     }
 }
