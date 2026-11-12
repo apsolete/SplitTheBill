@@ -27,7 +27,7 @@ import com.apsolete.splitthebill.entity.Party;
 public class PartyFragment extends Fragment {
 
     private FragmentPartyBinding binding;
-    private MateListAdapter adapter;
+    private ParticipantsAdapter adapter;
     private PartyViewModel viewModel;
 
     @Override
@@ -60,10 +60,9 @@ public class PartyFragment extends Fragment {
             }
         }, getViewLifecycleOwner(), Lifecycle.State.RESUMED);
 
-        adapter = new MateListAdapter();
+        adapter = new ParticipantsAdapter();
 
-
-        RecyclerView recyclerView = binding.recyclerPartyGoers;
+        RecyclerView recyclerView = binding.recyclerParticipants;
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 

@@ -27,9 +27,9 @@
 
     <fragment
         android:id="@+id/navigation_mate"
-        android:name="com.apsolete.splitthebill.ui.mate.MateFragment"
+        android:name="com.apsolete.splitthebill.ui.mate.MatesFragment"
         android:label="@string/title_mate"
-        tools:layout="@layout/fragment_mate" />
+        tools:layout="@layout/fragment_mates" />
 
     <fragment
         android:id="@+id/navigation_bill"

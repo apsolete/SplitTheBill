@@ -1,4 +1,4 @@
-package com.apsolete.splitthebill.ui.party;
+package com.apsolete.splitthebill.ui.mate;
 
 import android.view.ViewGroup;
 
@@ -8,9 +8,9 @@ import androidx.recyclerview.widget.ListAdapter;
 
 import com.apsolete.splitthebill.entity.Mate;
 
-public class MateListAdapter extends ListAdapter<Mate, MateViewHolder> {
-    public MateListAdapter() {
-        super(new MateDiff());
+public class MatesAdapter extends ListAdapter<Mate, MateViewHolder> {
+    public MatesAdapter() {
+        super(new MatesAdapter.MateDiff());
     }
 
     @NonNull

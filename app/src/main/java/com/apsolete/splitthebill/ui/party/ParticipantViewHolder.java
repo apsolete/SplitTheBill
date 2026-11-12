@@ -11,11 +11,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.apsolete.splitthebill.R;
 import com.apsolete.splitthebill.entity.Mate;
 
-public class MateViewHolder extends RecyclerView.ViewHolder {
+public class ParticipantViewHolder extends RecyclerView.ViewHolder {
     private final TextView mMateNameView;
     private final TextView mMateSelectView;
 
-    public MateViewHolder(@NonNull View view) {
+    public ParticipantViewHolder(@NonNull View view) {
         super(view);
         mMateNameView = view.findViewById(R.id.mate_name);
         mMateSelectView = view.findViewById(R.id.mate_select);
@@ -26,10 +26,10 @@ public class MateViewHolder extends RecyclerView.ViewHolder {
         mMateSelectView.setText("Selected");
     }
 
-    static MateViewHolder create(ViewGroup parent) {
+    static ParticipantViewHolder create(ViewGroup parent) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.recyclerview_mate, parent, false);
-        return new MateViewHolder(view);
+        return new ParticipantViewHolder(view);
     }
 }
 
