@@ -12,7 +12,7 @@ import androidx.room.PrimaryKey;
         },
         indices = {@Index("partyId"), @Index("mateId")}
 )
-public class PartyGoer {
+public class Participant {
     @PrimaryKey(autoGenerate = true)
     public long id;
     public long partyId;

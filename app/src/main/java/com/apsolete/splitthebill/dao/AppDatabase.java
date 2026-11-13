@@ -10,11 +10,11 @@ import androidx.room.TypeConverters;
 import com.apsolete.splitthebill.entity.Mate;
 import com.apsolete.splitthebill.entity.Bill;
 import com.apsolete.splitthebill.entity.Dish;
+import com.apsolete.splitthebill.entity.Participant;
 import com.apsolete.splitthebill.entity.Party;
-import com.apsolete.splitthebill.entity.PartyGoer;
 import com.apsolete.splitthebill.entity.Split;
 
-@Database(version = 2, entities = {Party.class, Mate.class, PartyGoer.class, Bill.class, Dish.class, Split.class})
+@Database(version = 2, entities = {Party.class, Mate.class, Participant.class, Bill.class, Dish.class, Split.class})
 @TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
     public static final String NAME = "SplitTheBillDatabase";
