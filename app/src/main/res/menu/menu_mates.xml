@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/menu_mates_decline"
-        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:icon="@drawable/ic_action_close"
         android:title="@string/menu_title_mates_decline"
         app:showAsAction="always" />
     <item
         android:id="@+id/menu_mates_accept"
-        android:icon="@android:drawable/ic_menu_add"
+        android:icon="@drawable/ic_action_done"
         android:title="@string/menu_title_mates_accept"
         app:showAsAction="ifRoom" />
 </menu>

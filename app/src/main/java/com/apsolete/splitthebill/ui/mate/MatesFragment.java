@@ -1,5 +1,7 @@
 package com.apsolete.splitthebill.ui.mate;
 
+import androidx.core.view.MenuProvider;
+import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
@@ -7,15 +9,20 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.apsolete.splitthebill.R;
 import com.apsolete.splitthebill.databinding.FragmentMatesBinding;
 
 public class MatesFragment extends Fragment {
@@ -24,9 +31,9 @@ public class MatesFragment extends Fragment {
     private FragmentMatesBinding binding;
     private MatesAdapter adapter;
 
-    public static MatesFragment newInstance() {
-        return new MatesFragment();
-    }
+    //public static MatesFragment newInstance() {
+    //    return new MatesFragment();
+    //}
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -35,6 +42,19 @@ public class MatesFragment extends Fragment {
 
         binding = FragmentMatesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+        requireActivity().addMenuProvider(new MenuProvider() {
+            @Override
+            public void onCreateMenu(@NonNull Menu menu, @NonNull MenuInflater menuInflater) {
+                menuInflater.inflate(R.menu.menu_mates, menu);
+            }
+            @Override
+            public boolean onMenuItemSelected(@NonNull MenuItem menuItem) {
+                int id = menuItem.getItemId();
+                NavHostFragment.findNavController(MatesFragment.this).navigateUp();
+                return false;
+            }
+        }, getViewLifecycleOwner(), Lifecycle.State.RESUMED);
 
         binding.butInsertNewMate.setEnabled(false);
         binding.butInsertNewMate.setOnClickListener(view -> {

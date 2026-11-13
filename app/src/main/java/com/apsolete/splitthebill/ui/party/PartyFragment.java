@@ -31,10 +31,9 @@ public class PartyFragment extends Fragment {
     private PartyViewModel viewModel;
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        viewModel =
-                new ViewModelProvider(this).get(PartyViewModel.class);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        viewModel = new ViewModelProvider(this).get(PartyViewModel.class);
 
         binding = FragmentPartyBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -44,15 +43,14 @@ public class PartyFragment extends Fragment {
             public void onCreateMenu(@NonNull Menu menu, @NonNull MenuInflater menuInflater) {
                 menuInflater.inflate(R.menu.menu_party, menu);
             }
-
             @Override
             public boolean onMenuItemSelected(@NonNull MenuItem menuItem) {
                 int id = menuItem.getItemId();
-                if (id == R.id.menu_party_mates) {
+                if (id == R.id.menu_party_participants) {
                     NavHostFragment.findNavController(PartyFragment.this)
                             .navigate(R.id.navigation_action_party_to_mate);
                 }
-                else if (id == R.id.menu_party_new) {
+                else if (id == R.id.menu_party_edit) {
                     NavHostFragment.findNavController(PartyFragment.this)
                             .navigate(R.id.navigation_action_party_to_edit);
                 }

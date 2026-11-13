@@ -32,9 +32,9 @@ public class PartyEditFragment extends Fragment {
     private FragmentPartyEditBinding binding;
     private Party currentParty;
 
-    public static PartyEditFragment newInstance() {
-        return new PartyEditFragment();
-    }
+    //public static PartyEditFragment newInstance() {
+    //    return new PartyEditFragment();
+    //}
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
