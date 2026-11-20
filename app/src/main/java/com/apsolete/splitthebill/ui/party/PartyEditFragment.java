@@ -94,4 +94,10 @@ public class PartyEditFragment extends Fragment {
         binding.editWhenDate.setText(Converters.toDateString(party.when));
         binding.editWhenTime.setText(Converters.toTimeString(party.when));
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
 }
