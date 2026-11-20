@@ -35,7 +35,7 @@ configure<ApplicationExtension> {
 }
 
 room {
-    schemaDirectory(path = "\$projectDir/schemas")
+    schemaDirectory("$projectDir/schemas")
 }
 
 dependencies {
